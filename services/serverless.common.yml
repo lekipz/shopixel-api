@@ -1,0 +1,8 @@
+custom:
+  stage: ${opt:stage,'dev'}
+
+  # Outputs names
+  outputs:
+    ApiGateway: ShopixelAPI-RestApiId
+    ApiGatewayRootResource: ShopixelAPI-RootResourceId
+

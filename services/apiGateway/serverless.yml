@@ -1,0 +1,51 @@
+app: shopixel-api
+service: api-gateway
+org: lekip
+
+custom:
+  stage: ${file(../serverless.common.yml):custom.stage}
+
+provider:
+  name: aws
+  stackName: shopixel-api-gateway-${self:custom.stage}
+  runtime: nodejs12.x
+  region: eu-west-1
+
+resources:
+  Resources:
+    ApiGateway:
+      Type: AWS::ApiGateway::RestApi
+      Properties:
+        Name: ShopixelAPI
+    ApiGatewayRootMethod:
+      Type: "AWS::ApiGateway::Method"
+      DependsOn:
+        - ApiGateway
+      Properties:
+        HttpMethod: ANY
+        ResourceId: !GetAtt ApiGateway.RootResourceId
+        RestApiId: !Ref ApiGateway
+        AuthorizationType: NONE
+        Integration:
+          IntegrationHttpMethod: ANY
+          Type: HTTP_PROXY
+          Uri: http://my-imaginary-bucket.s3-website-eu-west-1.amazonaws.com/
+          PassthroughBehavior: WHEN_NO_MATCH
+          IntegrationResponses:
+            - StatusCode: 200
+    ApiGatewayDeployment:
+      Type: "AWS::ApiGateway::Deployment"
+      DependsOn:
+        - ApiGatewayRootMethod
+      Properties:
+        RestApiId: !Ref "ApiGateway"
+        StageName: ${self:custom.stage}
+  Outputs:
+    ApiGatewayRestApiId:
+      Value: !Ref ApiGateway
+      Export:
+        Name: ${file(../serverless.common.yml):custom.outputs.ApiGateway}
+    ApiGatewayRestApiRootResourceId:
+      Value: !GetAtt ApiGateway.RootResourceId
+      Export:
+        Name: ${file(../serverless.common.yml):custom.outputs.ApiGatewayRootResource}
