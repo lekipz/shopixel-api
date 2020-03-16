@@ -1,0 +1,8 @@
+{
+  "name": "shopixel-api",
+  "version": "1.0.0",
+  "private": true,
+  "repository": "https://github.com/lekipz/shopixel-api.git",
+  "author": "Corentin Delannoy <corentin.delannoy2@gmail.com>",
+  "license": "MIT"
+}
