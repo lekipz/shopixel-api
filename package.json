@@ -4,5 +4,8 @@
   "private": true,
   "repository": "https://github.com/lekipz/shopixel-api.git",
   "author": "Corentin Delannoy <corentin.delannoy2@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "script": {
+    "start": "echo 'No services yet.'"
+  }
 }
