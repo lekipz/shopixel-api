@@ -3,6 +3,6 @@ custom:
 
   # Outputs names
   outputs:
-    ApiGateway: ShopixelAPI-RestApiId
-    ApiGatewayRootResource: ShopixelAPI-RootResourceId
+    ApiGateway: ShopixelAuthAPI-RestApiId
+    ApiGatewayRootResource: ShopixelAuthAPI-RootResourceId
 

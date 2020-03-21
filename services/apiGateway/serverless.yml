@@ -1,4 +1,4 @@
-app: shopixel-api
+app: shopixel-auth-api
 service: api-gateway
 org: lekip
 
@@ -16,7 +16,7 @@ resources:
     ApiGateway:
       Type: AWS::ApiGateway::RestApi
       Properties:
-        Name: ShopixelAPI
+        Name: ShopixelAuthAPI
     ApiGatewayRootMethod:
       Type: "AWS::ApiGateway::Method"
       DependsOn:
