@@ -5,7 +5,10 @@
   "repository": "https://github.com/lekipz/shopixel-api.git",
   "author": "Corentin Delannoy <corentin.delannoy2@gmail.com>",
   "license": "MIT",
-  "script": {
+  "scripts": {
     "start": "echo 'No services yet.'"
+  },
+  "dependencies": {
+    "@corentind/aws-ssm-config": "^0.2.0"
   }
 }
