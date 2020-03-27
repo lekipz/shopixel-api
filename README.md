@@ -65,4 +65,4 @@ yarn start
 - Travis CI : https://travis-ci.org/github/lekipz/shopixel-api
 - Serverless dashboard : https://dashboard.serverless.com/tenants/lekip/applications/shopixel-api/overview/service
 - API Gateway : https://eu-west-1.console.aws.amazon.com/apigateway/home?region=eu-west-1#/apis/jje3ln2puc/resources/gibi5blc5l
-
+- MongoDB Cluster : https://cloud.mongodb.com/v2/5e7e07cf1c8cdb4d6fa8edb7#clusters
