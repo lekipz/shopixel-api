@@ -9,7 +9,7 @@ provider:
   name: aws
   stackName: shopixel-api-gateway-${self:custom.stage}
   runtime: nodejs12.x
-  region: eu-west-1
+  region: ${file(../serverless.common.yml):provider.region}
 
 resources:
   Resources:

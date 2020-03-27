@@ -1,0 +1,40 @@
+service: auth
+app: shopixel-api
+org: lekip
+
+plugins:
+  - serverless-bundle
+  - serverless-offline
+
+custom:
+  bundle: ${file(../serverless.common.yml):custom.bundle}
+  serverless-offline:
+    httpPort: 8000
+
+package:
+  individually: true
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  region: ${file(../serverless.common.yml):provider.region}
+  stage: ${file(../serverless.common.yml):custom.stage}
+  apiGateway:
+    restApiId: !ImportValue ${file(../serverless.common.yml):custom.outputs.ApiGateway}
+    restApiRootResourceId: !ImportValue ${file(../serverless.common.yml):custom.outputs.ApiGatewayRootResource}
+  tracing:
+    lambda: true
+    apiGateway: true
+  environment:
+    STAGE: ${self:provider.stage}
+  iamRoleStatements:
+  - ${file(../serverless.common.yml):provider.ssmRoleStatement}
+
+functions:
+  dummyFunction:
+    handler: get.handler
+    events:
+      - http:
+          path: "/"
+          method: get
+          cors: ${file(../serverless.common.yml):custom.cors.${self:provider.stage}}

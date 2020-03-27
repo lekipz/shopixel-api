@@ -1,8 +1,38 @@
 custom:
   stage: ${opt:stage,'dev'}
 
+  # Serverless Bundle config
+  bundle:
+    sourcemaps: true      # Enable source maps
+    caching: true         # Enable Webpack caching
+    stats: false          # Don't print out any Webpack output
+    linting: true         # Enable code linting
+
   # Outputs names
   outputs:
     ApiGateway: ShopixelAPI-RestApiId
     ApiGatewayRootResource: ShopixelAPI-RootResourceId
 
+  # Cors configuration
+  cors:
+    dev: true
+
+# Provider options
+provider:
+  region: eu-west-1
+
+  # Role allowing to query parameters from SSM Parameter store
+  ssmRoleStatement:
+    Action:
+    - ssm:GetParametersByPath
+    Effect: Allow
+    Resource:
+      Fn::Join:
+      - ""
+      - - "arn:aws:ssm:"
+        - ${self:provider.region}
+        - ":"
+        - !Ref 'AWS::AccountId'
+        - ":parameter/shopixel/"
+        - ${self:provider.stage}
+        - "/api/"
