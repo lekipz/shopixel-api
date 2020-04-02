@@ -1,7 +1,9 @@
 import {ok} from '../../lib/responses';
-import ssmConfigClient from '../../lib/ssm';
+import {connectToDB} from '../../lib/db';
 
 export async function handler(event, context) {
-  const dbUrl = await ssmConfigClient.getByKey('mongoUrl', {withDecryption: true});
+  context.callbackWaitsForEmptyEventLoop = false;
+  await connectToDB();
+
   return ok({message: 'Hello world !'});
 }
