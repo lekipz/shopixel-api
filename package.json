@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "start": "run-p start:auth",
-    "start:auth": "cd services/auth && NODE_OPTIONS=--max_old_space_size=8192 sls offline"
+    "start:auth": "cd services/auth && NODE_OPTIONS=--max_old_space_size=8192 sls offline --stage local"
   },
   "dependencies": {
     "@corentind/aws-ssm-config": "^0.2.0"
