@@ -31,10 +31,10 @@ provider:
   - ${file(../serverless.common.yml):provider.ssmRoleStatement}
 
 functions:
-  dummyFunction:
-    handler: get.handler
+  register:
+    handler: register.handler
     events:
       - http:
-          path: "/"
-          method: get
+          path: register
+          method: post
           cors: ${file(../serverless.common.yml):custom.cors.${self:provider.stage}}
