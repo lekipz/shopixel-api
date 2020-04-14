@@ -11,6 +11,13 @@ deploy:
   skip_cleanup: true
   on:
     repo: lekipz/shopixel-api
+    branch: master
+- provider: script
+  script: bash deploy/service.sh auth
+  skip_cleanup: true
+  on:
+    repo: lekipz/shopixel-api
+    branch: master
 env:
   global:
   - secure: eSaoyyTFCPavuLTUKSm6ckBzd94vjcCOt7Uf2LPjp4rOzX6tnqVpIw63Wmv4NmZuAxkdfKovNSHLRskp0/b8l6MEPlZgXNSkMqTrwLnkDWxtwphLMcKjIgM6RTzGCKDZ10hsfxLCljHewy9GNogCRNXvmMPJzD330mZzhXivbrc4wRheql6BmDL4D/PEKA15tixjUDwvMpJ1gYSTnTbU8YovhsXMciKkuxnti72htGh8kKcQo/78uEfJAgHdkE9bSwN2F8bF2ZVlaHDFTlymwiUY5ABbl8n1ry9mDgOtXcqGbLnib1/8ZuCVVp8Z1DyOAvimqwHXTFotNyRUpkEEAADbHnTXX36x1tI6WpD2lJK8PjiteD19PMDUhCae65RynTK9yDVHRn49RcXeLjfHBc7x81tNX62QZCCzozD/k4o1YIxIf+Ld+delXaKQSQXrLg2rYbYvakVWcn1Kkg+3oSm3J1Ey7zAlYsCKkr02fwENz9dwKxsW8MmPk1WwWXDT3XKLjPTkBtdjXBVKsSNJgCycXkKXXRQjYJ3aTJxWGS8/EmPWShb7gjlGPBNiVso2iNPE4bnAPlIR2DeCWlGFg3XSobjETaKeFR809DQBtlV/YOMeQhxjGpg0K6zHbFhqxkZN1WDNyAhQ8aRTt3zVPGo+fSHctq6dqy5G7ho6eF4=
