@@ -19,6 +19,7 @@ provider:
   runtime: nodejs12.x
   region: ${file(../serverless.common.yml):provider.region}
   stage: ${file(../serverless.common.yml):custom.stage}
+  stackName: ${self:app}-${self:service}-${self:provider.stage}
   apiGateway:
     restApiId: !ImportValue ${file(../serverless.common.yml):custom.outputs.ApiGateway}
     restApiRootResourceId: !ImportValue ${file(../serverless.common.yml):custom.outputs.ApiGatewayRootResource}

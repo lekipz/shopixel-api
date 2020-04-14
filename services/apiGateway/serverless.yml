@@ -2,12 +2,10 @@ app: shopixel-api
 service: api-gateway
 org: lekip
 
-custom:
-  stage: ${file(../serverless.common.yml):custom.stage}
-
 provider:
   name: aws
-  stackName: shopixel-api-gateway-${self:custom.stage}
+  stage: ${file(../serverless.common.yml):custom.stage}
+  stackName: ${self:app}-${self:service}-${self:provider.stage}
   runtime: nodejs12.x
   region: ${file(../serverless.common.yml):provider.region}
 
@@ -39,7 +37,7 @@ resources:
         - ApiGatewayRootMethod
       Properties:
         RestApiId: !Ref "ApiGateway"
-        StageName: ${self:custom.stage}
+        StageName: ${self:provider.stage}
   Outputs:
     ApiGatewayRestApiId:
       Value: !Ref ApiGateway
