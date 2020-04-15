@@ -1,4 +1,4 @@
-import User from '../../src/domains/user/UserModel';
+import User from './model';
 import {hash} from '../../lib/bcrypt';
 
 export async function create(body) {
