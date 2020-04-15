@@ -3,3 +3,11 @@ node_js:
 - node
 cache: yarn
 script: yarn
+deploy:
+  provider: heroku
+  api_key:
+    secure: Vzrfmqt9w+ZBASFC/1E++9dIoiCW2HLvAUQ0VzfnmsWef0EbXytbh86IzniUANOAnyAAqG4OPKeBIIaGpaLzFsUoHFfAbPgBR2nNgQe2GQA7Axaw+THNICxlT/q9sl/SPp7RPxxbo/zP6T9JT6O1Z2HnCggKcVHVdxtFNowfNqOI58t+pYoyV6tyW25ncvdliraznfEO6HOfnudU35UU2Po4Srmao+A2hDHUvFuq+rPgCmsDjx28E8dSLZKAkfv7SmcSKWw2kJmOZT8qM8/PjApIcFLuENWy7FMPXI1Wudr25PcPQNfoPpNQnmzzPnlbjrrolxj98nKiQ8H5/gk7KcZfJx0PvXxvWaufOG7ebmlhSSTtBoI8ZJlZt2wglgyAKjofv6iu/jiGKbVkEn54He6EgYJIpttrp/UqIqst48paCkn14hJUw5033a4A4/GmWU6TuCYGpy1ye0cw66hcUkkSNTi7Zel+VihxufsAxYeL/h27RKAyJq2P7oX6IphpUJW5DEMYZE9NayH/GLFCFFfdhAfqpGBTPCnYJ1u5Xz9DIiYjdxmwnAlpb730PwXOIMuRYv4H9IfbWZ3YaWbeB2adD2XSWCsG7+g1hM5oFJ17gSSXI2EA8jGkhaBoM8A6FCvedDxiMjcl3T58rIO2g6Djyk04MIdoW7i0Aa5R6zA=
+  cleanup: false
+  on:
+    branch: master
+    repo: lekipz/shopixel-api

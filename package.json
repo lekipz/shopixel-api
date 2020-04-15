@@ -6,7 +6,8 @@
   "author": "Corentin Delannoy <corentin.delannoy2@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon --exec yarn run babel-node -- src/index.js",
+    "start": "node dist/main.js",
+    "dev": "nodemon --exec yarn run babel-node -- src/index.js",
     "build": "rimraf dist && webpack"
   },
   "dependencies": {
