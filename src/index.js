@@ -9,7 +9,7 @@ async function main() {
   await connectToDB(process.env.SHOPIXEL_DB_URL);
 
   console.log('Starting Web server...');
-  await startServer(process.env.SHOPIXEL_PORT);
+  await startServer(process.env.PORT || 3000);
 
   console.log('Application started.');
 }
