@@ -14,3 +14,11 @@ export async function generate(email) {
     });
   });
 }
+
+export async function verify(token) {
+  return new Promise(resolve => {
+    JWT.verify(token, process.env.SHOPIXEL_JWT_SECRET, {}, err => {
+      resolve(!err);
+    });
+  });
+}
