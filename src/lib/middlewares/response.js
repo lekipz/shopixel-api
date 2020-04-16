@@ -1,5 +1,5 @@
-import HttpResponse from '../responses/response';
-import InternalServerError from '../responses/server-error';
+import HttpResponse from '../responses/statuses/response';
+import InternalServerError from '../responses/statuses/server-error';
 
 export default function responseMiddleware(err, req, res, next) {
   if (err instanceof HttpResponse) {
