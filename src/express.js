@@ -3,9 +3,11 @@ import cors from 'cors';
 import bodyParser from 'body-parser';
 import {AuthRoutes} from './domains/auth/router';
 import responseMiddleware from './lib/middlewares/response';
+import  morgan from 'morgan';
 
 const server = express();
 
+server.use(morgan('tiny'));
 server.use(cors());
 server.use(bodyParser.json());
 

@@ -7,7 +7,10 @@ import Ok from '../../lib/responses/statuses/ok';
 export async function register(body) {
   try {
     const user = await UserService.create(body);
-    return new Created(user.toJSON());
+    const jsonUser = user.toJSON();
+    delete jsonUser.password;
+
+    return new Created(jsonUser);
   } catch (error) {
     if (error.name === 'ValidationError') {
       const {message, name} = error;
