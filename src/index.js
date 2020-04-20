@@ -2,6 +2,8 @@ import {config} from 'dotenv';
 import {startServer} from './express';
 import {connectToDB} from './lib/db';
 
+const PORT = process.env.PORT || 3000;
+
 async function main() {
   config();
 
@@ -9,9 +11,9 @@ async function main() {
   await connectToDB(process.env.SHOPIXEL_DB_URL);
 
   console.log('Starting Web server...');
-  await startServer(process.env.PORT || 3000);
+  await startServer(PORT);
 
-  console.log('Application started.');
+  console.log(`Application started on port ${PORT}.`);
 }
 
 main()
