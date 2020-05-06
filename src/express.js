@@ -4,6 +4,7 @@ import bodyParser from 'body-parser';
 import {AuthRoutes} from './domains/auth/router';
 import responseMiddleware from './lib/middlewares/response';
 import morgan from 'morgan';
+import {ProductRoutes} from './domains/product/router';
 
 const server = express();
 
@@ -12,6 +13,7 @@ server.use(cors());
 server.use(bodyParser.json());
 
 server.use(AuthRoutes);
+server.use(ProductRoutes);
 
 server.use(responseMiddleware);
 
