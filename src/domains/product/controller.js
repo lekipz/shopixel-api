@@ -4,7 +4,7 @@ import Ok from '../../lib/responses/statuses/ok';
 
 export async function findAll() {
   const products = await Product.find({});
-  return new Ok(products.toJSON());
+  return new Ok(products);
 }
 
 export async function findByName(name) {
