@@ -59,6 +59,19 @@ Pour lancer le projet, depuis la racine du projet, lancer la commande suivante :
 yarn start
 ```
 
+## Importation des données produits
+
+Si vous utilisez la base locale (celle du docker-compose), vous pouvez éxécuter la commande suivante
+à la racine du projet pour initialiser les données produits :
+
+```shell script
+docker run \
+      --rm \
+      --network shopixel-api_default \
+      -v $(pwd)/misc/products.json:/tmp/products.json \
+      mongo:4 mongoimport --uri="mongodb://mongodb:27017/test" --collection=products --file=/tmp/products.json --jsonArray
+```
+
 ## Liens
 
 - API Base path : https://i8vhyawiu8.execute-api.eu-west-1.amazonaws.com/dev

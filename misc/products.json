@@ -1,0 +1,182 @@
+[
+  {
+    "name": "phone",
+    "displayName": "Téléphonie",
+    "category": "media",
+    "maxStock": 5
+  },
+  {
+    "name": "audio",
+    "displayName": "Casques, Écouteurs",
+    "category": "media",
+    "maxStock": 15
+  },
+  {
+    "name": "computer",
+    "displayName": "Informatique",
+    "category": "media",
+    "maxStock": 5
+  },
+  {
+    "name": "tv",
+    "displayName": "Télévision",
+    "category": "media",
+    "maxStock": 5
+  },
+  {
+    "name": "printer",
+    "displayName": "Impression",
+    "category": "media",
+    "maxStock": 8
+  },
+  {
+    "name": "wiring",
+    "displayName": "Connectique",
+    "category": "media",
+    "maxStock": 20
+  },
+  {
+    "name": "awakening-toy",
+    "displayName": "Jeux d'éveils",
+    "category": "toys",
+    "maxStock": 10
+  },
+  {
+    "name": "board-game",
+    "displayName": "Jeux de sociétés",
+    "category": "toys",
+    "maxStock": 10
+  },
+  {
+    "name": "video-game",
+    "displayName": "Jeux vidéos",
+    "category": "toys",
+    "maxStock": 10
+  },
+  {
+    "name": "fruits",
+    "displayName": "Fruits",
+    "category": "daily-groceries",
+    "maxStock": 25
+  },
+  {
+    "name": "vegetables",
+    "displayName": "Légumes",
+    "category": "daily-groceries",
+    "maxStock": 25
+  },
+  {
+    "name": "meat",
+    "displayName": "Viandes",
+    "category": "daily-groceries",
+    "maxStock": 20
+  },
+  {
+    "name": "fish",
+    "displayName": "Poissons",
+    "category": "daily-groceries",
+    "maxStock": 15
+  },
+  {
+    "name": "pasta",
+    "displayName": "Pâtes",
+    "category": "daily-groceries",
+    "maxStock": 20
+  },
+  {
+    "name": "rice",
+    "displayName": "Riz",
+    "category": "daily-groceries",
+    "maxStock": 15
+  },
+  {
+    "name": "diaper",
+    "displayName": "Couches",
+    "category": "baby",
+    "maxStock": 20
+  },
+  {
+    "name": "baby-food",
+    "displayName": "Nourriture pour nourissons",
+    "category": "baby",
+    "maxStock": 20
+  },
+  {
+    "name": "baby-furniture",
+    "displayName": "Mobilier pour bébé",
+    "category": "baby",
+    "maxStock": 8
+  },
+  {
+    "name": "washing-machine",
+    "displayName": "Machine à laver",
+    "category": "home-appliance",
+    "maxStock": 5
+  },
+  {
+    "name": "fridge",
+    "displayName": "Réfrigérateurs",
+    "category": "home-appliance",
+    "maxStock": 5
+  },
+  {
+    "name": "vacuum",
+    "displayName": "Aspirateurs",
+    "category": "home-appliance",
+    "maxStock": 8
+  },
+  {
+    "name": "beer",
+    "displayName": "Bières",
+    "category": "alcohol",
+    "maxStock": 15
+  },
+  {
+    "name": "wine",
+    "displayName": "Vins",
+    "category": "alcohol",
+    "maxStock": 10
+  },
+  {
+    "name": "spirituous",
+    "displayName": "Spiritueux",
+    "category": "alcohol",
+    "maxStock": 10
+  },
+  {
+    "name": "sheet",
+    "displayName": "Draps",
+    "category": "deco-bed",
+    "maxStock": 8
+  },
+  {
+    "name": "cushion",
+    "displayName": "Coussins",
+    "category": "deco-bed",
+    "maxStock": 10
+  },
+  {
+    "name": "table-decoration",
+    "displayName": "Décoration de table",
+    "category": "deco-bed",
+    "maxStock": 15
+  },
+  {
+    "name": "screw",
+    "displayName": "Visserie",
+    "category": "diy",
+    "maxStock": 25
+  },
+  {
+    "name": "paint",
+    "displayName": "Peinture",
+    "category": "diy",
+    "maxStock": 12
+  },
+  {
+    "name": "tools",
+    "displayName": "Outillage",
+    "category": "diy",
+    "maxStock": 15
+  }
+]
