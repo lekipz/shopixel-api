@@ -15,5 +15,5 @@ export async function authenticate(email, password) {
     throw new AuthenticationError();
   }
 
-  return JWT.generate(email);
+  return JWT.generate(email, dbUser.profile);
 }
