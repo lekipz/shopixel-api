@@ -10,6 +10,7 @@ export default function responseMiddleware(err, req, res, next) {
       return res.json(err.body);
     }
   } else {
+    console.error(err);
     return responseMiddleware(new InternalServerError(), req, res, next);
   }
 }
