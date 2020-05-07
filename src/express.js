@@ -4,7 +4,6 @@ import bodyParser from 'body-parser';
 import {AuthRoutes} from './domains/auth/router';
 import responseMiddleware from './lib/middlewares/response';
 import morgan from 'morgan';
-import {CustomerRoutes} from './domains/customer/router';
 import {ProductRoutes} from './domains/product/router';
 import {TransactionRoutes} from "./domains/transaction/router";
 
@@ -15,7 +14,6 @@ server.use(cors());
 server.use(bodyParser.json());
 
 server.use(AuthRoutes);
-server.use(CustomerRoutes);
 server.use(ProductRoutes);
 server.use(TransactionRoutes);
 
