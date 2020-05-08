@@ -14,3 +14,10 @@ export async function create(body) {
 
   return await user.save();
 }
+
+export async function findRandomUser() {
+  const count = await User.count({}).exec();
+  const rng = Math.floor(Math.random() * count);
+  const randomDoc = await User.find({}).limit(1).skip(rng).exec();
+  return randomDoc[0];
+}
