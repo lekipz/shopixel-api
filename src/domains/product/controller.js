@@ -1,8 +1,9 @@
 import Product from './model';
+import * as ProductService from './service';
+import * as CustomerService from '../customer/service';
 import NotFound from '../../lib/responses/statuses/not-found';
 import Ok from '../../lib/responses/statuses/ok';
-import * as ProductService from './service'
-import BadRequest from "../../lib/responses/statuses/bad-request";
+import BadRequest from '../../lib/responses/statuses/bad-request';
 
 export async function findAll() {
   const products = await Product.find({});
@@ -17,18 +18,31 @@ export async function findByName(name) {
   return new Ok(product.toJSON());
 }
 
+export async function generateShoppingList(profileName) {
+  try {
+    const profile = await CustomerService.getProfileByName(profileName);
+    const products = await ProductService.getRandomsForProfile(profile);
+    return new Ok(products);
+  } catch (e) {
+    if (e.name === 'InvalidProfileError') {
+      return new BadRequest('invalid-profile', e.message);
+    }
+    throw e;
+  }
+}
+
 export async function purchaseProduct(name) {
   try {
     const updatedProduct = await ProductService.purchaseProduct(name);
-    return new Ok(updatedProduct.toJSON())
+    return new Ok(updatedProduct.toJSON());
   } catch (error) {
     const {message, name} = error;
-    if(error.name === 'ProductNotFoundError') {
+    if (error.name === 'ProductNotFoundError') {
       return new NotFound(message);
     }
-    if(error.name === 'OutOfStockError') {
+    if (error.name === 'OutOfStockError') {
       return new BadRequest(name, message);
     }
-    throw error
+    throw error;
   }
 }
