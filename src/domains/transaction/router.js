@@ -4,6 +4,6 @@ import * as TransactionController from './controller'
 
 const router = express.Router();
 
-router.post('/transactions', handleRequest(({body}) => {TransactionController.create(body)}));
+router.post('/transactions', handleRequest(({body}) => TransactionController.create(body)));
 
 export const TransactionRoutes = router;
