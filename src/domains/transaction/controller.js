@@ -5,7 +5,7 @@ import BadRequest from '../../lib/responses/statuses/bad-request';
 export async function create(body) {
   try {
     const transaction = await TransactionService.create(body);
-    const jsonTransaction = transaction.toJson();
+    const jsonTransaction = transaction.toJSON();
 
     return new Created(jsonTransaction);
   }catch (error) {
