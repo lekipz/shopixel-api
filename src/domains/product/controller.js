@@ -24,7 +24,7 @@ export async function purchaseProduct(name) {
   } catch (error) {
     const {message, name} = error;
     if(error.name === 'ProductNotFoundError') {
-      return new NotFound(name, message);
+      return new NotFound(message);
     }
     if(error.name === 'OutOfStockError') {
       return new BadRequest(name, message);
