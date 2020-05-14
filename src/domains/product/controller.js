@@ -14,3 +14,7 @@ export async function findByName(name) {
   }
   return new Ok(product.toJSON());
 }
+
+export async function updateProduct(product) {
+
+}
