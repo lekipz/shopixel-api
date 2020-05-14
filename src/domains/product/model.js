@@ -17,13 +17,14 @@ const ProductSchema = new Schema({
   currentStock: {
     type: Types.Number,
     defaultValue: 0,
+    required: true,
     min: 0
   },
   maxStock: {
     type: Types.Number,
     required: true,
     min: 1
-  }
+  },
 });
 
 ProductSchema.plugin(uniqueValidator);
