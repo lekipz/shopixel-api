@@ -23,8 +23,11 @@ export async function purchaseProduct(name) {
     return new Ok(updatedProduct.toJSON())
   } catch (error) {
     const {message, name} = error;
+    if(error.name === 'ProductNotFoundError') {
+      return new NotFound(name, message);
+    }
     if(error.name === 'OutOfStockError') {
-      return new BadRequest(name, message)
+      return new BadRequest(name, message);
     }
     throw error
   }
