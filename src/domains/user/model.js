@@ -14,13 +14,16 @@ const UserSchema = new Schema({
     required: true
   },
   email: {
-    type: String,
+    type: Types.String,
     required: true,
     unique: true
   },
   password: {
-    type: String,
+    type: Types.String,
     required: true
+  },
+  profile: {
+    type: Types.String
   }
 });
 
