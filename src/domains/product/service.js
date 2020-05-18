@@ -14,5 +14,5 @@ export async function purchaseProduct(name) {
   }
 
   productToUpdate.currentStock --;
-  return await productToUpdate.save();
+  return productToUpdate.save();
 }
