@@ -3,7 +3,7 @@ import ProductNotFoundError from './product-not-found';
 import Product from "./model";
 
 export async function purchaseProduct(name) {
-  let productToUpdate = await Product.findOne({name}).exec();
+  let productToUpdate = Product.findOne({name}).exec();
 
   if(!productToUpdate) {
     throw new ProductNotFoundError();
