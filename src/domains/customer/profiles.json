@@ -2,73 +2,85 @@
   {
     "profile": "nerd",
     "spawn-rate": 0.10,
-    "media": 0.7,
-    "toys": 0.6,
-    "baby": 0,
-    "daily-groceries": 0.3,
-    "home-appliance": 0.1,
-    "diy": 0.1,
-    "alcohol": 0.2,
-    "deco-bed": 0
+    "category-rates": {
+      "media": 0.7,
+      "toys": 0.6,
+      "baby": 0,
+      "daily-groceries": 0.3,
+      "home-appliance": 0.1,
+      "diy": 0.1,
+      "alcohol": 0.2,
+      "deco-bed": 0
+    }
   },
   {
     "profile": "parent",
     "spawn-rate": 0.25,
-    "media": 0.2,
-    "toys": 0.7,
-    "baby": 0.8,
-    "daily-groceries": 0.8,
-    "home-appliance": 0.3,
-    "diy": 0,
-    "alcohol": 0.1,
-    "deco-bed": 0.4
+    "category-rates": {
+      "media": 0.2,
+      "toys": 0.7,
+      "baby": 0.8,
+      "daily-groceries": 0.8,
+      "home-appliance": 0.3,
+      "diy": 0,
+      "alcohol": 0.1,
+      "deco-bed": 0.4
+    }
   },
   {
     "profile": "student",
     "spawn-rate": 0.15,
-    "media": 0.4,
-    "toys": 0.2,
-    "baby": 0,
-    "daily-groceries": 0.7,
-    "home-appliance": 0.2,
-    "diy": 0,
-    "alcohol": 0.3,
-    "deco-bed": 0.3
+    "category-rates": {
+      "media": 0.4,
+      "toys": 0.2,
+      "baby": 0,
+      "daily-groceries": 0.7,
+      "home-appliance": 0.2,
+      "diy": 0,
+      "alcohol": 0.3,
+      "deco-bed": 0.3
+    }
   },
   {
     "profile": "casual",
     "spawn-rate": 0.35,
-    "media": 0.1,
-    "toys": 0,
-    "baby": 0.3,
-    "daily-groceries": 0.8,
-    "home-appliance": 0.3,
-    "diy": 0.2,
-    "alcohol": 0.2,
-    "deco-bed": 0.3
+    "category-rates": {
+      "media": 0.1,
+      "toys": 0,
+      "baby": 0.3,
+      "daily-groceries": 0.8,
+      "home-appliance": 0.3,
+      "diy": 0.2,
+      "alcohol": 0.2,
+      "deco-bed": 0.3
+    }
   },
   {
     "profile": "craftman",
     "spawn-rate": 0.10,
-    "media": 0.5,
-    "toys": 0,
-    "baby": 0,
-    "daily-groceries": 0,
-    "home-appliance": 0.2,
-    "diy": 0.8,
-    "alcohol": 0.3,
-    "deco-bed": 0
+    "category-rates": {
+      "media": 0.5,
+      "toys": 0,
+      "baby": 0,
+      "daily-groceries": 0,
+      "home-appliance": 0.2,
+      "diy": 0.8,
+      "alcohol": 0.3,
+      "deco-bed": 0
+    }
   },
   {
     "profile": "move-out",
     "spawn-rate": 0.05,
-    "media": 0,
-    "toys": 0,
-    "baby": 0,
-    "daily-groceries": 0.2,
-    "home-appliance": 0.8,
-    "diy": 0.7,
-    "alcohol": 0,
-    "deco-bed": 0.6
+    "category-rates": {
+      "media": 0,
+      "toys": 0,
+      "baby": 0,
+      "daily-groceries": 0.2,
+      "home-appliance": 0.8,
+      "diy": 0.7,
+      "alcohol": 0,
+      "deco-bed": 0.6
+    }
   }
 ]

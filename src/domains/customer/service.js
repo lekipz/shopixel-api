@@ -1,5 +1,7 @@
 import * as fs from 'fs';
 import * as path from 'path';
+import {connectToDB} from '../../lib/db';
+import InvalidProfileError from './invalid-profile-error';
 
 export async function getRandomProfile() {
   const profiles = await readProfiles();
@@ -16,6 +18,16 @@ export async function getRandomProfile() {
   }
 
   return pickup(0, rng);
+}
+
+export async function getProfileByName(name) {
+  const profiles = await readProfiles();
+  const profile = profiles.find(profile => profile.profile === name);
+
+  if (profile) {
+    return profile;
+  }
+  throw new InvalidProfileError(name);
 }
 
 function readProfiles() {
