@@ -24,7 +24,7 @@ const ProductSchema = new Schema({
     type: Types.Number,
     required: true,
     min: 1
-  },
+  }
 });
 
 ProductSchema.plugin(uniqueValidator);

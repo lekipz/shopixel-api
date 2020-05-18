@@ -1,12 +1,12 @@
 import OutOfStockError from './out-of-stock-error';
-import ProductNotFound from './product-not-found';
+import ProductNotFoundError from './product-not-found';
 import Product from "./model";
 
 export async function purchaseProduct(name) {
   let productToUpdate = await Product.findOne({name}).exec();
 
   if(!productToUpdate) {
-    throw new ProductNotFound
+    throw new ProductNotFoundError();
   }
 
   if(productToUpdate.currentStock === 0) {
