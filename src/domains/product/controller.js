@@ -52,13 +52,14 @@ export async function refillProductStock(name) {
     const refilledProduct = await ProductService.refillProductStock(name);
     return new Ok(refilledProduct.toJSON());
   } catch (error) {
-    const {message, name} = error;
-    if(error.name === 'ProductNotFoundError') {
-      return new NotFound(message);
+    switch (error.name) {
+      case 'ProductNotFoundError':
+        return new NotFound(error.message);
+      case 'ProductFullStockError':
+      case 'AlreadyRefillingError':
+        return new BadRequest(error.message);
+      default:
+        throw error;
     }
-    if(error.name === 'ProductFullStockError') {
-      return new BadRequest(message)
-    }
-    throw error;
   }
 }

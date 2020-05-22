@@ -23,6 +23,10 @@ const ProductSchema = new Schema({
     type: Types.Number,
     required: true,
     min: 1
+  },
+  refilling: {
+    type: Types.Boolean,
+    defaultValue: false
   }
 });
 
