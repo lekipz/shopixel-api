@@ -49,8 +49,12 @@ export async function refillProductStock(name) {
     throw new ProductFullStockError();
   }
 
+  productToRefill.refilling = true;
+  await productToRefill.save();
+
   await waitProductRefill(productToRefill);
   productToRefill.currentStock = productToRefill.maxStock;
+  productToRefill.refilling = false;
   return productToRefill.save();
 }
 
