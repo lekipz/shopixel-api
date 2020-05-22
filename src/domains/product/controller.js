@@ -46,3 +46,16 @@ export async function purchaseProduct(name) {
     throw error;
   }
 }
+
+export async function refillProductStock(name) {
+  try {
+    ProductService.refillStock(name);
+    return new Ok();
+  } catch (error) {
+    const {message, name} = error;
+    if(error.name === 'ProductNotFoundError') {
+      return new NotFound(message);
+    }
+    throw error;
+  }
+}
