@@ -1,6 +1,7 @@
 import OutOfStockError from './out-of-stock-error';
 import ProductNotFoundError from './product-not-found';
 import Product from './model';
+import ProductFullStock from "./product-full-stock";
 
 export async function purchaseProduct(name) {
   const productToUpdate = await Product.findOne({name}).exec();
@@ -35,6 +36,28 @@ export async function getRandomsForProfile(profile) {
     return getRandomsForProfile(profile);
   }
   return [...new Set(filteredProducts)];
+}
+
+export async function refillProductStock(name) {
+  const productToRefill = await Product.findOne({name}).exec();
+
+  if (!productToRefill) {
+    throw new ProductNotFoundError();
+  }
+  if (productToRefill.currentStock === productToRefill.maxStock) {
+    throw new ProductFullStock();
+  }
+
+  await waitProductRefill(productToRefill);
+  productToRefill.currentStock = productToRefill.maxStock;
+  return productToRefill.save();
+}
+
+async function waitProductRefill(productToRefill) {
+  const productRefillNumber = productToRefill.maxStock - productToRefill.currentStock;
+  const timeToRefill = productRefillNumber * 1500;
+
+  return new Promise(resolve => setTimeout(resolve, timeToRefill));
 }
 
 async function getRandomProductForCategory(category) {
