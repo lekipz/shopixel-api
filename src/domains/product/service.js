@@ -50,11 +50,14 @@ export async function refillProductStock(name) {
   }
 
   productToRefill.refilling = true;
-  await productToRefill.save();
 
-  await waitProductRefill(productToRefill);
-  productToRefill.currentStock = productToRefill.maxStock;
-  productToRefill.refilling = false;
+  waitProductRefill(productToRefill)
+    .then(() => {
+      productToRefill.currentStock = productToRefill.maxStock;
+      productToRefill.refilling = false;
+      return productToRefill.save();
+    });
+
   return productToRefill.save();
 }
 
