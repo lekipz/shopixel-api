@@ -35,7 +35,8 @@ export async function getRandomsForProfile(profile) {
   if (filteredProducts.length === 0) {
     return getRandomsForProfile(profile);
   }
-  return [...new Set(filteredProducts)];
+  return [...new Set(filteredProducts.map(({name}) => name))]
+    .map(productName => filteredProducts.find(({name}) => productName === name));
 }
 
 export async function refillProductStock(name) {
