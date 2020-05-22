@@ -9,5 +9,6 @@ router.get('/products/shopping-list', handleRequest(({query: {profile = null}}) 
 router.get('/products/:name', handleRequest(({params: {name}}) => ProductController.findByName(name)));
 
 router.put('/products/:name/purchase', handleRequest( ({params: {name}}) => ProductController.purchaseProduct(name)));
+router.put('/products/:name/refill', handleRequest(({params: {name}}) => ProductController.refillProductStock(name)));
 
 export const ProductRoutes = router;
