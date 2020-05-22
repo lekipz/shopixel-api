@@ -56,6 +56,9 @@ export async function refillProductStock(name) {
     if(error.name === 'ProductNotFoundError') {
       return new NotFound(message);
     }
+    if(error.name === 'ProductFullStockError') {
+      return new BadRequest(message)
+    }
     throw error;
   }
 }
