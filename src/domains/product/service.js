@@ -1,7 +1,7 @@
-import OutOfStockError from './out-of-stock-error';
-import ProductNotFoundError from './product-not-found';
+import OutOfStockError from './errors/out-of-stock-error';
+import ProductNotFoundError from './errors/product-not-found-error';
 import Product from './model';
-import ProductFullStock from "./product-full-stock";
+import ProductFullStockError from "./errors/product-full-stock-error";
 
 export async function purchaseProduct(name) {
   const productToUpdate = await Product.findOne({name}).exec();
@@ -46,7 +46,7 @@ export async function refillProductStock(name) {
     throw new ProductNotFoundError();
   }
   if (productToRefill.currentStock === productToRefill.maxStock) {
-    throw new ProductFullStock();
+    throw new ProductFullStockError();
   }
 
   await waitProductRefill(productToRefill);
