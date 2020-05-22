@@ -1,7 +1,8 @@
 import OutOfStockError from './errors/out-of-stock-error';
 import ProductNotFoundError from './errors/product-not-found-error';
-import Product from './model';
 import ProductFullStockError from "./errors/product-full-stock-error";
+import AlreadyRefillingError from './errors/already-refilling-error';
+import Product from './model';
 
 export async function purchaseProduct(name) {
   const productToUpdate = await Product.findOne({name}).exec();
@@ -47,6 +48,9 @@ export async function refillProductStock(name) {
   }
   if (productToRefill.currentStock === productToRefill.maxStock) {
     throw new ProductFullStockError();
+  }
+  if(productToRefill.refilling) {
+    throw new AlreadyRefillingError();
   }
 
   productToRefill.refilling = true;
