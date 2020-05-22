@@ -37,6 +37,23 @@ export async function getRandomsForProfile(profile) {
   return [...new Set(filteredProducts)];
 }
 
+export async function refillProductStock(name) {
+  const productToRefill = await Product.findOne({name}).exec()
+
+  if (!productToRefill) {
+    throw new ProductNotFoundError();
+  }
+
+  const productRefillNumber = productToRefill.maxStock - productToRefill.currentStock;
+
+  for(let i = 0; i < productRefillNumber; i++) {
+    setTimeout(function () {
+      productToRefill.currentStock++;
+    }, 1500)
+  }
+  return productToRefill.save();
+}
+
 async function getRandomProductForCategory(category) {
   const count = await Product.count({category}).exec();
   const rng = Math.floor(Math.random() * count);

@@ -49,8 +49,8 @@ export async function purchaseProduct(name) {
 
 export async function refillProductStock(name) {
   try {
-    ProductService.refillStock(name);
-    return new Ok();
+    const refilledProduct = await ProductService.refillProductStock(name);
+    return new Ok(refilledProduct.toJSON());
   } catch (error) {
     const {message, name} = error;
     if(error.name === 'ProductNotFoundError') {
