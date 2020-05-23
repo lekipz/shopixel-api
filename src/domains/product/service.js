@@ -22,7 +22,7 @@ export async function purchaseProduct(name) {
 export async function getRandomsForProfile(profile) {
   const rates = profile['category-rates'];
   const productPromises = Object.entries(rates)
-    .flatMap(entry => Array(3).fill(entry))
+    .flatMap(entry => Array(2).fill(entry))
     .map(([category, rate]) => {
       const rng = Math.random();
       if (rng <= rate) {
