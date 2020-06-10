@@ -3,15 +3,21 @@ import mongoose from 'mongoose';
 const Schema = mongoose.Schema;
 
 const RecommendationSchema = new Schema({
-  products: [{
-    type: Schema.Types.ObjectId,
-    ref: 'Product',
-    required: true
-  }],
   user: {
     type: Schema.Types.ObjectID,
     ref: 'User',
     required: true
+  },
+  categories: [{
+    type: Schema.Types.String
+  }],
+  products: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Product'
+  }],
+  generated: {
+    type: Schema.Types.Boolean,
+    defaultValue: false
   }
 });
 
