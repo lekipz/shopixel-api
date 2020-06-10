@@ -24,9 +24,9 @@ export function publishMessage(topic, message) {
   }
 
   getKafkaProducer().then(producer => {
-    producer.send({
+    producer.send([{
       topic,
       messages: message
-    })
+    }])
   });
 }
