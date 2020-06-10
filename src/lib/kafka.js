@@ -28,6 +28,12 @@ export function publishMessage(topic, message) {
     producer.send([{
       topic,
       messages: km
-    }])
+    }], (err, data) => {
+      if (err) {
+        console.error(err);
+      } else {
+        console.log('Data : ', data);
+      }
+    })
   });
 }
