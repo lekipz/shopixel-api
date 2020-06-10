@@ -1,4 +1,5 @@
 import * as UserService from './service';
+import * as RecommendationService from '../recommendation/service';
 import Ok from '../../lib/responses/statuses/ok';
 import NoContent from '../../lib/responses/statuses/no-content';
 import User from './model';
@@ -10,6 +11,15 @@ export async function findRandomUser() {
     return new Ok(randomUser);
   }
   return new NoContent();
+}
+
+export async function getRecommendationsForUser(userId) {
+  const recommendation = await RecommendationService.findByUserId(userId);
+  if (!recommendation) {
+    return new NotFound(`Could not found any recommendation for user with ID : ${userId}.`);
+  }
+
+  return new Ok(recommendation);
 }
 
 export async function createRecommendationsForUser(userId, shoppingList) {
