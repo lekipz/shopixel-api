@@ -1,13 +1,13 @@
-import Kafka from 'kafka-node';
+import {KeyedMessage, KafkaClient, Producer} from 'kafka-node';
 
 let client, producer;
 
 async function getKafkaProducer() {
   if (!producer) {
-    client = new Kafka.KafkaClient({
+    client = new KafkaClient({
       kafkaHost: process.env.SHOPIXEL_KAFKA_HOST
     });
-    producer = new Kafka.Producer(client);
+    producer = new Producer(client);
 
     return new Promise(resolve => {
       producer.on('ready', () => resolve(producer));
@@ -24,9 +24,10 @@ export function publishMessage(topic, message) {
   }
 
   getKafkaProducer().then(producer => {
+    const km = new KeyedMessage('data', message);
     producer.send([{
       topic,
-      messages: message
+      messages: km
     }])
   });
 }
