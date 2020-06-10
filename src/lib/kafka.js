@@ -9,8 +9,15 @@ async function getKafkaProducer() {
     });
     producer = new Producer(client);
 
+    producer.on('error', error => {
+      console.error('An error occurred with Kafka producer : ', error);
+    });
+    
     return new Promise(resolve => {
-      producer.on('ready', () => resolve(producer));
+      producer.on('ready', () => {
+        console.log('Producer ready.');
+        resolve(producer);
+      });
     });
   }
 
@@ -28,11 +35,9 @@ export function publishMessage(topic, message) {
     producer.send([{
       topic,
       messages: km
-    }], (err, data) => {
+    }], err => {
       if (err) {
         console.error(err);
-      } else {
-        console.log('Data : ', data);
       }
     })
   });

@@ -26,5 +26,5 @@ export async function findRandomUser() {
 
 export async function startRecommendationsGeneration(data) {
   await RecommendationService.deleteByUserId(data.user);
-  publishMessage(process.env.SHOPIXEL_RECOMMENDATIONS_KAFKA_TOPIC, data);
+  publishMessage(process.env.SHOPIXEL_RECOMMENDATIONS_KAFKA_TOPIC, JSON.stringify(data));
 }
