@@ -40,6 +40,13 @@ export async function getRandomsForProfile(profile) {
     .map(productName => filteredProducts.find(({name}) => productName === name));
 }
 
+export async function getRandomProductForCategory(category) {
+  const count = await Product.count({category}).exec();
+  const rng = Math.floor(Math.random() * count);
+  const randomProducts = await Product.find({category}).limit(1).skip(rng).exec();
+  return randomProducts[0];
+}
+
 export async function refillProductStock(name) {
   const productToRefill = await Product.findOne({name}).exec();
 
@@ -70,11 +77,4 @@ async function waitProductRefill(productToRefill) {
   const timeToRefill = productRefillNumber * 1500;
 
   return new Promise(resolve => setTimeout(resolve, timeToRefill));
-}
-
-async function getRandomProductForCategory(category) {
-  const count = await Product.count({category}).exec();
-  const rng = Math.floor(Math.random() * count);
-  const randomProducts = await Product.find({category}).limit(1).skip(rng).exec();
-  return randomProducts[0];
 }
