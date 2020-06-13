@@ -53,14 +53,14 @@ docker-compose up -d
 
 Puis, il faut renseigner quelques variables d'environnement pour configurer l'API. Dupliquer le fichier
 `.env.template` en un nouveau fichier `.env`. Ce fichier ne doit **jamais** être ajouté dans le gestionnaire
-de contrôle de version : une ligne lui est donc dédié dans le fichier `.gitignore`.
+de contrôle de version : une ligne lui est donc dédiée dans le fichier `.gitignore`.
 
 Seules les variables `SHOPIXEL_DB_URL` et `SHOPIXEL_JWT_SECRET` sont nécessaires pour le développement
-local, car le client Kafka n'est actif que sur l'API de production.
+local, car le client Kafka n'est actif que sur l'environnement de production.
 
 Si vous utilisez la base de données MongoDB locale comme recommandé [précedemment](#lancement-de-la-base-de-donnes-locale),
 l'URL de connection est donc `mongodb://localhost:27017` ; sinon, renseignez l'URL de connexion à
-votre base de donnée.
+votre base de données.
 
 Pour la variable `SHOPIXEL_JWT_SECRET`, renseignez n'importe quelle chaîne de caractère alphanumérique.
 
@@ -72,8 +72,8 @@ Pour lancer le projet, depuis la racine du projet, lancer la commande suivante :
 yarn dev
 ```
 
-Cette commande lancera un agen `nodemon` qui observera en temps réel les changements sur les fichiers
-du projet et redémarrera le serveur local en conséquences.
+Cette commande lancera un agent `nodemon` qui observera en temps réel les changements sur les fichiers
+du projet et redémarrera le serveur local en conséquence.
 
 ### Nettoyage
 
