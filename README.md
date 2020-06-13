@@ -106,7 +106,7 @@ racine du projet :
 yarn build
 ```
 
-Le code est ainsi minifié est optimisé dans un fichier `dist/main.js`.
+Le code est ainsi minifié et optimisé dans un fichier `dist/main.js`.
 
 ## Déploiement
 
