@@ -3,7 +3,7 @@
 Ce dépôt contient les sources de la partie API du projet Shopixel. Il s'agit d'un
 serveur [express](https://www.npmjs.com/package/express) qui expose les différents endpoints qu'un
 utilisateur peut utiliser pour obtenir des informations sur les produits, ajouter une transaction en
-fin de courses, obtenir des recommendations eprsonnalisés, etc.
+fin de courses, obtenir des recommendations personnalisées, etc.
 
 ## Sommaire
 
