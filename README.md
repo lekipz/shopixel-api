@@ -116,7 +116,7 @@ un nouveau déploiement. L'applcation est packagée est déployée sur un dyno [
 
 ## Liens
 
-- API Base path : https://https://shopixel-api.herokuapp.com
+- API Base path : http://shopixel-webapp.s3-website-eu-west-1.amazonaws.com
 - Github : https://github.com/lekipz/shopixel-api
 - Travis CI : https://travis-ci.com/github/lekipz/shopixel-api
 - MongoDB Cluster : https://cloud.mongodb.com/v2/5e7e07cf1c8cdb4d6fa8edb7#clusters
