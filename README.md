@@ -13,7 +13,7 @@ fin de courses, obtenir des recommendations personnalisées, etc.
 - [Développement](#développement)
   - [Lancement de la base de données locale](#lancement-de-la-base-de-données-locale)
   - [Configuration](#configuration)
-  - [Démarrage du projet](#édmarrage-du-projet)
+  - [Démarrage du projet](#démarrage-du-projet)
   - [Nettoyage](#nettoyage)
 - [Importation des données produits](#importation-des-données-produits)
 - [Build](#build)
